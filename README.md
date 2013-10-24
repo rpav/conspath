@@ -48,7 +48,7 @@ ways to match non-list elements of A or B, so Conspath is pretty
 flexible.
 
 However, if you are looking at doing recursive destructuring or
-similar, solutions such as (optima)[https://github.com/m2ym/optima]
+similar, solutions such as [optima](https://github.com/m2ym/optima)
 are probably more suited to such problems.
 
 ## Conspaths
