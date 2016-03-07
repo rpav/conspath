@@ -11,6 +11,10 @@
   (when (eq match (car item))
     (match-next (cdr item))))
 
+(defmethod match-simple ((match string) (item list))
+  (when (equal match (car item))
+    (match-next (cdr item))))
+
 (defmethod match-simple ((match integer) item)
   (match-next (elt item match)))
 
