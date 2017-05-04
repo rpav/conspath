@@ -3,6 +3,12 @@
 (defmethod match-complex ((match (eql 'function)) args item)
   (funcall (car args) item))
 
+(defmethod match-complex ((match (eql 'cl:quote)) args item)
+  (if (equal (car args) item)
+      (found args)
+      (when (listp item)
+        (match-next item))))
+
 (defmethod match-complex ((match (eql 'cl:car)) args item)
   (when (sub-match args item nil)
     (found (cadr item))))
