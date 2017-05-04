@@ -4,10 +4,11 @@
   (funcall (car args) item))
 
 (defmethod match-complex ((match (eql 'cl:quote)) args item)
-  (if (equal (car args) item)
-      (found args)
-      (when (listp item)
-        (match-next item))))
+  (if (and (listp item)
+           (equal (car args) (car item)))
+      (found item)
+      (when (consp item)
+        (sub-match (list* 'cl:quote args) item nil))))
 
 (defmethod match-complex ((match (eql 'cl:car)) args item)
   (when (sub-match args item nil)
